@@ -12,9 +12,9 @@ This dataset was generated on October 17, 2016.
 This dataset is sampled from a larger dataset where users were selected at random for inclusion. All selected users had rated at least 20 movies.
 
 ### Approach
-1. Data cleaning and 
+1. Data cleaning and exploration
 1. Using Packages to build the following models 
-  1. Neighbourhood based 
-  1. Model Based 
+    1. Neighbourhood based model
+    1. Model Based model
 
 
