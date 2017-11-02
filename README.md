@@ -14,7 +14,7 @@ This dataset is sampled from a larger dataset where users were selected at rando
 ### Approach
 1. Data cleaning and exploration
 2. Using Packages to build the following models 
-    1. Memory Based Recommendation - Neighbourhodd based/ Collaborative Filtering
+    1. Memory Based Recommendation - Neighbourhood based/ Collaborative Filtering
     2. Model Based Recommendation - Matrix Factorization
 
 
