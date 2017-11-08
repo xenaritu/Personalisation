@@ -78,13 +78,13 @@ Model-based recommendation systems involve building a model based on the dataset
 Personality diagnosis works on the assumption that the active user has a hidden variable, known as a "true personality," that can accurately predict the ratings for the user on all items.
 
 ![..]
-(https://www.dropbox.com/s/hdd4xbcsr5uduwa/algo.png?dl=0)
+(https://github.com/xenaritu/Personalisation/blob/master/Algo_equation_1.png)
 where a is the active user, j is the item, ra(j) is the active user's rating for item j,
 n = 50 nearest neighbours
 h is the universe of all possible ratings - varied from 0.5 to 5.
 Ra and Ri are ratings vectors for commonly rated items of user 'a' and user 'i'
 ![..]
-(https://www.dropbox.com/s/5qdrcb2salv11gn/algo_impl.png?dl=0)
+(https://github.com/xenaritu/Personalisation/blob/master/Algo_equation_1.png)
 the output of the algorithm gives a dictionary: key: "possible rating"; value: "probability of possible rating". 
 We will select the rating which has shown the highest probability. 
 
