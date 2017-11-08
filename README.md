@@ -96,7 +96,7 @@ Running time of this method increases rapidly with size of the data.
 * links.csv: Contains the imdb Id and tmdb ID corresponding to the movieId 
 * movies.csv: Contains the title, year of release, genre corresponding to the movieID  
 * tags.csv: Contains the tags created by the users corresponding to the movie ID 
-* ratings.csv: Contains the ratings created by the users corresponding to the movie ID
+* ratings.csv: Contains the ratings created by the users corresponding to the movie ID.
 The ratings distribution follows a long tail graph as can be seen below:
 
 ![Long tail graph](long_tail_graph.png)
