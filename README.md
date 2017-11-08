@@ -30,17 +30,6 @@ The model is build using python 2.7 version. Below is a list of packages that ha
 * Math: Provides access to basic mathematical functions
 * Operator: Set of efficient functions corresonding to intristic operators of python 
 
-## File descriptions 
-* Data Exploration and model based recommendor.ipynb :
-
-
-
-* MovieLens Neighborhood Based.ipynb:
-Considers the Memory based approach of item based collaborative filtering highlighting the similarity functions of Pearson Correlation and Cosine Similiarity with an implementation of GraphLab that provides an interactive view of the model with the smaller RMSE. Understanding the limitations of scaling this, the file begins to explore ranking factorization that focuses on features and tuning the ranking regularization parameter. The latter half is an exploration of a model based approach which is then explored in a deep dive in a separate notebook.
-
-* Model.py :
-
-
 ## Approach
 We follow a step by step approach to build this recommendation system: 
 1. Data cleaning and exploration 
@@ -78,12 +67,16 @@ Model-based recommendation systems involve building a model based on the dataset
 Personality diagnosis works on the assumption that the active user has a hidden variable, known as a "true personality," that can accurately predict the ratings for the user on all items.
 
 ![Algorithm Equation](Algo_equation_1.png)
+
+
 where a is the active user, j is the item, ra(j) is the active user's rating for item j,
 n = 50 nearest neighbours
 h is the universe of all possible ratings - varied from 0.5 to 5.
 Ra and Ri are ratings vectors for commonly rated items of user 'a' and user 'i'
 
 ![Implementation Equation](Implemtation.png)
+
+
 the output of the algorithm gives a dictionary: key: "possible rating"; value: "probability of possible rating". 
 We will select the rating which has shown the highest probability. 
 
@@ -100,6 +93,22 @@ Avoids overfitting of model by using hybrid model
 *Disadvantages*:
 Processing of the data takes more time than the other 2 methods. 
 Running time of this method increases rapidly with size of the data.    
+
+
+## File descriptions 
+*
+
+* Data Exploration and model based recommendor.ipynb :
+Follows the already mentioned steps to explore, clean and merge the data. 
+
+A 5-fold cross-validation was implemented in which the original sample was randomly portioned into 5 equal subsamples. For each fold, the model was implemented, and the resulting cross-validation error .9933 is the average RMSE of the 5 folds.
+
+* MovieLens Neighborhood Based.ipynb:
+
+Considers the Memory based approach of item based collaborative filtering highlighting the similarity functions of Pearson Correlation and Cosine Similiarity with an implementation of GraphLab that provides an interactive view of the model with the smaller RMSE. Understanding the limitations of scaling this, the file begins to explore ranking factorization that focuses on features and tuning the ranking regularization parameter. The latter half is an exploration of a model based approach which is then explored in a deep dive in a separate notebook.
+
+* Model.py :
+
     
 ## Results 
 
