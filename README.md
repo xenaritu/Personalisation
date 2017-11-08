@@ -18,7 +18,7 @@ We do this by building a recommendation system and suggesting 10 top movies to e
 ## Model selection criteria
 The selection criteria is to select a model with high precision recall and low root mean square error(RMSE). This model will be preferred if the time taken for training the model is higher in a resonable range.
 
-We aim to build a model with RMSE of < 2.0 with the precision of and a recall of in the test dataset.  
+We aim to build a model with RMSE of < 2.0 in the test dataset.  
 
 ## Required packages 
 The model is build using python 2.7 version. Below is a list of packages that have to be installed for the same:
@@ -82,8 +82,6 @@ We will select the rating which has shown the highest probability.
 
 For implementation, the above algorithm can be re-written as below:
 
-
-
 *Advantages*:
 Hybrid model leverages on the existing rating given by the compared user.
 It does not require compilation step to incorporate new data. 
@@ -94,30 +92,50 @@ Avoids overfitting of model by using hybrid model
 Processing of the data takes more time than the other 2 methods. 
 Running time of this method increases rapidly with size of the data.    
 
-
 ## File descriptions 
-*
-
+* links.csv: Contains the imdb Id and tmdb ID corresponding to the movieId 
+* movies.csv: Contains the title, year of release, genre corresponding to the movieID  
+* tags.csv: Contains the tags created by the users corresponding to the movie ID 
+* ratings.csv: Contains the ratings created by the users corresponding to the movie ID
 * Data Exploration and model based recommendor.ipynb :
-Follows the already mentioned steps to explore, clean and merge the data. 
 
-A 5-fold cross-validation was implemented in which the original sample was randomly portioned into 5 equal subsamples. For each fold, the model was implemented, and the resulting cross-validation error .9933 is the average RMSE of the 5 folds.
+Follows the above mentioned steps to explore, clean and merge the data. We then consider the Model based approach considering three solvers adaptive gradient stochastic descent,stochastic gradient descent, Implicit Alternating Least Squares. The three models are compared in terms of precision recall and RMSE, we then proceed with the best solver. 
+
+We then try different values of the L2 regularization, compare the models are set the optimum value. Similar approach is followed to set the value of number of latent factors. 
+
+We also train the model on different sample sizes sampled out of the given data and compare the model performances. Note that, since we began with an already sampled dataset, the sub samples are small in size and a clear trend in the model performance is not seen.
+
+We also validated the model on dense subsegment (consisting of users who have rated more 100 movies) and compared the performance on the sparse subsegment (consisting of the users who rated less than 100 movies). 
+
+Following this a 5-fold cross-validation was implemented in which the original sample was randomly portioned into 5 equal subsamples. For each fold, the model was implemented, and the resulting cross-validation error .9933 is the average RMSE of the 5 folds.
 
 * MovieLens Neighborhood Based.ipynb:
 
 Considers the Memory based approach of item based collaborative filtering highlighting the similarity functions of Pearson Correlation and Cosine Similiarity with an implementation of GraphLab that provides an interactive view of the model with the smaller RMSE. Understanding the limitations of scaling this, the file begins to explore ranking factorization that focuses on features and tuning the ranking regularization parameter. The latter half is an exploration of a model based approach which is then explored in a deep dive in a separate notebook.
 
-* Model.py :
+* Hybrid_Model_Personality_Diagnosis_Algorithm.ipynb :
+
+Ratings.csv file has been imported into a pandas dataframe.
+This data frame is further divided into with same shape but one with 80% data, named training and the other with 20% data, named test data set.
+A ratings distribution plot has been made to view the distribution. 
+Now, test.dataframe has been converted to data matrix and mean user-rating has been subtracted from original ratings.
+With this matrix, cosine similarity has been measured and a similarity matrix has been built. This similarity data goes into the building of hybrid model.
+Finally, for implementation of our hybrid algorithm, 3 functions have been built: user_train_nn, common_train_items, pd_train_rating.
+The function description is as given below:
+* user_train_nn: Given input of a user and item pair, the function gives output of atmost 50 nearest neighboring users whose similarities are all positive
+* common_train_items: Given an input of 2 users, the function gives a list of items that are commonly rated by the 2 users
+* pd_train_rating: This is the final function where our personality diagnosis algorithm gets implemented. Given an input of a active user and the index of item for which rating needs to be predicted, this function gives the probability for each possible rating. Finally, it chooses the ratings which has the highest probability. 
+
+This entire code is implemented on the test dataset and rmse has been computed
 
     
 ## Results 
+The case study meets the hypothetical business objective of suggesting movies to the user that are similar to the movies already rated by the customer or item similarity. The top 10 movies to each user have been suggested to each user in the various models proposed. We met the aim to build a model with RMSE of < 2.0 in the test dataset.
 
-Below are the Results corresponding to the finalized Memory based, Model based and Hybrid recommendation models:
+However, we would not be comfortable operationalizing this as the scale of the dataset is minute compared to the scale of data that the business would be requiring to provide customers with the best and most informed decisions. Potential watch outs would be that the dataset in use is overfitting to the small dataset but in fact would not provide the optimal recommendations given the larger dataset size.
 
-Model | RMSE | Precision | Recall 
------- | ----- | --------- | -------
-Memory based | 1.160 | 99 | 88 
-Model Based | 0.997 | ii | 88 
-Hybrid Based | 1.292 | NA | NA 
+The fact that the likes of incomplete information that could be easily aggregated to augment the dataset also has not been incorporated into this model is another potential downfall. For example, the model could be altered to produce genre specific recommendations that perhaps may be more accurate. The same logic could apply to actor specific or various other facets of movies that are a high factor of influence for some users liking a particular film.
+
+Further in the business case a company may want to constrain the movie choices to either a subset of films that they are streaming or in the case of a cinema, the movies that have just hit the screens. In either case, the top 10 rated movies by our model are not necessary the films that would be the best for increase the user engagement.
 
 
