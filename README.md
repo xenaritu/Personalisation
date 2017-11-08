@@ -61,7 +61,7 @@ Model-based recommendation systems involve building a model based on the dataset
 *Advantages*:
 * Scalability: Most models resulting from model-based algorithms are much smaller than the actual dataset, so that even for very large datasets, the model ends up being small enough to be used efficiently. This imparts scalability to the overall system.
 
-* Prediction speed: Model-based systems are also likely to be faster, at least in comparison to memory-based systems because, the time required to query the model (as opposed to the whole dataset) is usually much smaller than that required to query the whole dataset.
+*Prediction speed*: Model-based systems are also likely to be faster, at least in comparison to memory-based systems because, the time required to query the model (as opposed to the whole dataset) is usually much smaller than that required to query the whole dataset.
 
 ### Hybrid Recommendation 
 Personality diagnosis works on the assumption that the active user has a hidden variable, known as a "true personality," that can accurately predict the ratings for the user on all items.
@@ -130,12 +130,12 @@ This entire code is implemented on the test dataset and rmse has been computed
 
     
 ## Results 
-The case study meets the hypothetical business objective of suggesting movies to the user that are similar to the movies already rated by the customer or item similarity. The top 10 movies to each user have been suggested to each user in the various models proposed. We met the aim to build a model with RMSE of < 2.0 in the test dataset.
+The case study meets the hypothetical business objective of suggesting movies to a user that are similar to the movies already rated by the customer or based on item similarity. The top 10 movies for each user have been suggested in the various models proposed. We met the aim to build a model with RMSE of < 2.0 in the test dataset.
 
-However, we would not be comfortable operationalizing this as the scale of the dataset is minute compared to the scale of data that the business would be requiring to provide customers with the best and most informed decisions. Potential watch outs would be that the dataset in use is overfitting to the small dataset but in fact would not provide the optimal recommendations given the larger dataset size.
+However, we would not be comfortable operationalizing this as the scale of the dataset is minute compared to the scale of data that the business would be requiring in order to provide customers with the best and most informed decisions. Potential watch outs would be that the dataset in use is overfitting to the small dataset and, thus, would not provide the optimal recommendations given the larger dataset size.
 
-The fact that the likes of incomplete information that could be easily aggregated to augment the dataset also has not been incorporated into this model is another potential downfall. For example, the model could be altered to produce genre specific recommendations that perhaps may be more accurate. The same logic could apply to actor specific or various other facets of movies that are a high factor of influence for some users liking a particular film.
+The fact that the likes of incomplete information that could be easily mitigated by aggreation to augment the dataset also has not been incorporated into this model is another potential downfall. For example, the model could be altered to produce genre specific recommendations that perhaps may be more accurate. The same logic could apply to actor specific recommendations or various other facets of movies that are a high factor of influence for some users liking a particular film.
 
-Further in the business case a company may want to constrain the movie choices to either a subset of films that they are streaming or in the case of a cinema, the movies that have just hit the screens. In either case, the top 10 rated movies by our model are not necessary the films that would be the best for increase the user engagement.
+Further in the business case, a company may want to constrain the movie choices to either a subset of films that they are streaming or, in the case of a cinema, the movies that have just hit the screens. In either case, the top 10 rated movies by our model are not necessarily the films that would be the best to increase user engagement.
 
 
