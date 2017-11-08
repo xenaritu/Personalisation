@@ -97,6 +97,10 @@ Running time of this method increases rapidly with size of the data.
 * movies.csv: Contains the title, year of release, genre corresponding to the movieID  
 * tags.csv: Contains the tags created by the users corresponding to the movie ID 
 * ratings.csv: Contains the ratings created by the users corresponding to the movie ID
+The ratings distribution follows a long tail graph as can be seen below:
+
+![Long tail graph](long_tail_graph.png)
+
 * Data Exploration and model based recommendor.ipynb :
 
 Follows the above mentioned steps to explore, clean and merge the data. We then consider the Model based approach considering three solvers adaptive gradient stochastic descent,stochastic gradient descent, Implicit Alternating Least Squares. The three models are compared in terms of precision recall and RMSE, we then proceed with the best solver. 
