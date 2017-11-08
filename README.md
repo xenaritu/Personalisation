@@ -59,6 +59,7 @@ Following steps have been followed while exploring data:
 * Creating new columns based on available columns, if required 
 
 ### Memory based recommendation 
+Item-Based collaborative filtering for recommender systems is based on the similarity between items that is calculated using ratings. This models resolves the problem faced in many systems that have many more users than items. A result of this is a more stable rating distribution in the model so the model does not have to be constantly rebuilt as often.
 
 
 
