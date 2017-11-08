@@ -116,7 +116,7 @@ Below are the Results corresponding to the finalized Memory based, Model based a
 
 Model | RMSE | Precision | Recall 
 ------ | ----- | --------- | -------
-Memory based | 3.2 | 99 | 88 
+Memory based | 1.160 | 99 | 88 
 Model Based | 0.997 | ii | 88 
 Hybrid Based | 1.292 | NA | NA 
 
