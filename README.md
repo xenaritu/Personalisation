@@ -33,7 +33,8 @@ The model is build using python 2. version. Below is a list of packages that hav
 
 ## File descriptions 
 * EDAandModelBased.ipynb :
-* 
+* MovieLens Neighborhood Based & Ranking Factorization with Stoch GD.ipynb:
+Considers the Memory based approach of item based collaborative filtering highlighting the similarity functions of Pearson Correlation and Cosine Similiarity with an implementation of GraphLab that provides an interactive view of the model with the smaller RMSE. Understanding the limitations of scaling this, the file begins to explore ranking factorization that focuses on features and tuning the ranking regularization parameter. The latter half is an exploration of a model based approach which is then explored in a deep dive in a separate notebook.
 * Model.py :
 
 
