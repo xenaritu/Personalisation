@@ -33,8 +33,8 @@ The model is build using python 2.7 version. Below is a list of packages that ha
 ## Approach
 We follow a step by step approach to build this recommendation system: 
 1. Data cleaning and exploration 
-2. Using GraphLab Package to build the following models 
-    1. Memory Based Recommendation - Neighbourhood based/ Collaborative Filtering  
+2. Using GraphLab Package to build the following Collaborative Filtering models:
+    1. Memory Based Recommendation - Neighbourhood based
     2. Model Based Recommendation - Matrix Factorization  
 3. Building a Hybrid recommendation system 
 4. Tuning hyperparameters for each model 
@@ -80,7 +80,7 @@ Ra and Ri are ratings vectors for commonly rated items of user 'a' and user 'i'
 the output of the algorithm gives a dictionary: key: "possible rating"; value: "probability of possible rating". 
 We will select the rating which has shown the highest probability. 
 
-For implementation, the above algorithm can be re-written as below:
+The advantages and disadvantages of the above algorithm are mentioned below:
 
 *Advantages*:
 Hybrid model leverages on the existing rating given by the compared user.
